@@ -1,0 +1,45 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build_common:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+
+      - name: Change to common directory
+        run: cd packages/common
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Typescript
+        run: npm run build
+
+  build_core:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "npm"
+
+      - name: Change to common directory
+        run: cd packages/core
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Typescript
+        run: npm run build

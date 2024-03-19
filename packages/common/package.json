@@ -1,0 +1,22 @@
+{
+  "name": "@thespagi/base-common",
+  "version": "0.0.3",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "package": "npm run build && ts-node package.script.ts",
+    "deploy": "npm run package && cd dist && npm publish"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.3.3",
+    "@nestjs/microservices": "^10.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
