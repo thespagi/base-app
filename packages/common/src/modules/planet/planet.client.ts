@@ -8,7 +8,9 @@ export class PlanetClient {
   constructor(@Inject("CLIENT") private readonly client: ClientProxy) {}
 
   async getPlanet(id: number) {
-    const response = await this.client.send(PlanetEndpoints.GET, { id }).toPromise();
+    const response = await this.client
+      .send(PlanetEndpoints.GET, { id })
+      .toPromise();
 
     const { planet } = response;
     if (!planet) return null;

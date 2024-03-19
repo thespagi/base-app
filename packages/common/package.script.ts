@@ -21,7 +21,7 @@ function main() {
   // Write updated package.json
   fs.writeFileSync(
     __dirname + "/dist/package.json",
-    Buffer.from(JSON.stringify(sourceObj, null, 2), "utf-8")
+    Buffer.from(JSON.stringify(sourceObj, null, 2), "utf-8"),
   );
 
   // Copy files
