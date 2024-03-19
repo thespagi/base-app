@@ -7,6 +7,10 @@
   "scripts": {
     "build:common": "tsc --project packages/common/tsconfig.json",
     "build:core": "tsc --project packages/core/tsconfig.json",
-    "build:all": "npm run build:common && npm run build:core"
+    "build:all": "npm run build:common && npm run build:core",
+    "format:prettier": "prettier . --write"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
