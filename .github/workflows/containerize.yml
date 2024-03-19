@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  build_docker_image:
+  core:
     runs-on: ubuntu-latest
 
     steps:
@@ -12,6 +12,9 @@ jobs:
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Change directory to core package
+        run: cd packages/core
 
       - name: Build Docker image
         run: docker build . -t ghcr.io/${{github.repository}}:latest
