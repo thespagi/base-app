@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  build_common:
+  build_typescript:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,22 +18,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Typescript
+      - name: Build Common Typescript
         run: npm run build:common
 
-  build_core:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Typescript
+      - name: Build Core Typescript
         run: npm run build:core
